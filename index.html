@@ -38,9 +38,14 @@
         // segundo then recebe os dados e parseia eles 
         .then(dt =>{
             if(dt.erro){
-                throw new Error(`CEP INVALIDO!`)
+                throw new Error(`CEP INVALIDO! Favor entrar um CEP VÁLIDO. `)
             }
+            document.getElementById("logradouro").value = dt.logradouro
+            document.getElementById("complemento").value = dt.complemento
             document.getElementById("bairro").value = dt.bairro
+            document.getElementById("localidade").value = dt.localidade
+            document.getElementById("uf").value = dt.uf
+
         })
         .catch(error => {
             console.error(`Erro:`, error.message)
