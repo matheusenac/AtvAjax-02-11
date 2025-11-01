@@ -3,7 +3,7 @@
 Integrantes:
 **José Matheus Santos Filho**
 **Marina**
-**Victor Luiz**
+**Victor Luiz Barreira Ferreira Lima**
 **Luiz Miguel**
 
 
