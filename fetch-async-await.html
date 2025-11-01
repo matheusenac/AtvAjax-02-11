@@ -22,24 +22,42 @@
         <input type="text" id="localidade" placeholder="Cidade">
         <br>
         <input type="text" id="uf" placeholder="UF">
+
+        <p id="mensagem-erro" style="color: red;"></p> <br>
     </div>
 </body>
 <script>
-    async function cepConsulta(){
-        let cep = document.getElementById("cep").value
+    async function cepConsulta() {
+        const cep = document.getElementById("cep").value
+        const mensagemErroUsuario = document.getElementById("mensagem-erro");
         try {
-            const response = await fetch(`https://viacep.com.br/ws/${cep}/json`); // aguarda que a promesa fetch('...') seja resolvida antes de passar para a próxima linha de código
-            const data = await response.json();
+            // aguarda que a promesa fetch('...') seja resolvida antes de passar para a próxima linha de código
+            const response = await fetch(`https://viacep.com.br/ws/${cep}/json`);
+            // Verifica se a resposta HTTP indica um erro de rede
+            if (!response.ok) {
+                throw new Error(`Erro de rede: ${response.status}`);
+            }
 
+            const data = await response.json();
+            // Verifica se a API retornou um erro de entrada de dados
+            if (data.erro) {
+                // Lança um erro de validação para ser capturado pelo catch além do erro de rede padrão
+                throw new Error("CEP não encontrado!");
+            }
+
+            // os seguintes campos serão preenchidos não havendo erro
             document.getElementById("logradouro").value = data.logradouro
             document.getElementById("complemento").value = data.complemento
             document.getElementById("bairro").value = data.bairro
             document.getElementById("localidade").value = data.localidade
             document.getElementById("uf").value = data.uf
-            
+
         } catch (error) {
-            console.error("Erro de conexão com a rede. Falha no carregamento dos dados:", error)
+            // Exibe a mensagem de erro apropriada para o usuário
+            mensagemErroUsuario.textContent = error.message;
+            console.error("Erro:", error)
         }
     }
 </script>
+
 </html>
