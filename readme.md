@@ -2,7 +2,7 @@
 ---
 Integrantes:
   
-**José Matheus Santos Filho**\n
+**José Matheus Santos Filho**
   
 **Marina Magalhães de Castro Tôrres**
   
