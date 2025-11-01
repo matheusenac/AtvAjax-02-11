@@ -8,6 +8,6 @@ Integrantes:
   
 **Victor Luiz Barreira Ferreira Lima**
   
-**Luiz Miguel**
+**Luiz Miguel Gonçalves de Oliveira**
 
 
