@@ -9,5 +9,7 @@ Integrantes:
 **Victor Luiz Barreira Ferreira Lima**
   
 **Luiz Miguel Gonçalves de Oliveira**
+  
+**Beatriz Cristiane Harberman Severo Alves**
 
 
